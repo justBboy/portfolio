@@ -21,14 +21,14 @@ const LeftSidebar = props => {
             <div>
             <a href={`/demos/categories/all`} className="category-link">All</a>
                 {
-                  props.categories.map(category => <a href={`/demos/categories/${category.feature}`} className="category-link" key={category.id}>{category.feature}</a>)
+                  !!props.categories.length && props.categories.map(category => <a href={`/demos/categories/${category.feature}`} className="category-link" key={category.id}>{category.feature}</a>)
                 }
             </div>
         </div>
         :
         <div className="category-links-mobile">
           {
-                  props.categories.map(category => <Button onClick={e => handleCategoryLinkMobile(e, `/demos/categories/${category.feature}`)} variant="contained" key={category.id}>{category.feature}</Button>)
+                  !!props.categories.length && props.categories.map(category => <Button onClick={e => handleCategoryLinkMobile(e, `/demos/categories/${category.feature}`)} variant="contained" key={category.id}>{category.feature}</Button>)
               }
         </div>
         }

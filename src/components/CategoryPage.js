@@ -56,7 +56,7 @@ const CategoryPage = props => {
           <div className="category-list" ref={el => (categoryList = el)}>
             {
               
-              categoryPost && categoryPost.map(post => (
+              !!categoryPost.length && categoryPost.map(post => (
                 <a key={post.id} className="card-link" onClick={e => handleClick(e, post.id)} href="">
                   <Card className="card">
                   <div className="card-header">

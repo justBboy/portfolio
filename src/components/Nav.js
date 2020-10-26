@@ -53,7 +53,7 @@ const Nav = props => {
     setEmail('');
     setUsername('');
 
-    fetch('http://localhost:5000/email', {
+    fetch('https://salty-refuge-30244.herokuapp.com/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
