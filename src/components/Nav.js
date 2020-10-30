@@ -7,11 +7,13 @@ import { useAlert } from 'react-alert';
 // css imports
 import "./css/components.css";
 import 'react-responsive-modal/styles.css';
+import { Link, useHistory } from "react-router-dom";
 
 const Nav = props => {
   const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
+  const history = useHistory();
 
   const alert = useAlert();
 
@@ -32,7 +34,7 @@ const Nav = props => {
   const handleLinkClick = (e, dest) => {
     e.preventDefault();
   
-    window.location.pathname = dest
+    history.push(dest);
   }
 
   const leaveAMessageHandler = e => {
@@ -77,14 +79,14 @@ const Nav = props => {
       <nav className="navbar">
         <ul className="nav-links">
           <li className="nav-link current">
-            <a onClick={e => {handleLinkClick(e, '/')}} href="/">BBOY</a>
+            <Link to="/portfolio">BBOY</Link>
             <div ref={el => (bboyLink = el)} className=""></div>
           </li>
           <li className="nav-link right">
             <a className="btn-pink" onClick={e => leaveAMessageHandler(e)} href="/contact">Leave A Message</a>
           </li>
           <li className="nav-link right">
-            <a onClick={e => {handleLinkClick(e, '/demos')}} href="/demos">DEMOS</a>
+            <Link to="/portfolio/demos">DEMOS</Link>
             <div ref={el => (demosLink = el)} className=""></div>
           </li>
         </ul>

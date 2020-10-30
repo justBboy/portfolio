@@ -10,18 +10,12 @@ const DemoMainContent = props => {
   const [categoryTitle, setCategoryTitle] = useState('');
 
   useEffect(() => {
-    if(window.location.pathname == '/demos') {
+    if(window.location.pathname == '/portfolio/demos') {
       setCategoryTitle('All');
     }
 
     return () => setCategoryTitle('');
   }, [])
-  
-  const handleClick = (e, id) => {
-    e.preventDefault();
-
-    window.location.pathname = `/demoposts/${id}`;
-  }
 
   return (
     <div className="demo-main-content">

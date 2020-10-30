@@ -33,7 +33,7 @@ const SingleDemo = (props) => {
       </h3>
         <AliceCarousel className="single-img" infinite={true} autoPlay autoPlayInterval="3000">
             {
-              post.images.map(img => <img key={img.id} src={"http://localhost:1337"+img.formats.small.url} className="slide-img" />)
+              post.images.map(img => <img key={img.id} src={img.formats.small.url} className="slide-img" />)
             }
         </AliceCarousel>
       <div className="single-content">

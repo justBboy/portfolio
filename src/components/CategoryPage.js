@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Card } from '@material-ui/core';
 
 
@@ -49,7 +49,7 @@ const CategoryPage = props => {
     const handleClick = (e, id) => {
         e.preventDefault();
     
-        window.location.pathname = `/demos/${id}`;
+        window.location.pathname = `/portfolio/demos/${id}`;
       }
     return (
         <React.Fragment>
@@ -57,7 +57,7 @@ const CategoryPage = props => {
             {
               
               !!categoryPost.length && categoryPost.map(post => (
-                <a key={post.id} className="card-link" onClick={e => handleClick(e, post.id)} href="">
+                <Link className="card-link" to={`/portfolio/demos/${post.id}`}>
                   <Card className="card">
                   <div className="card-header">
                     <h2 className="card-title">{post.title}</h2>
@@ -68,10 +68,10 @@ const CategoryPage = props => {
                     </ul>
                   </div>
                   <div className="card-img">
-                    <img src={'http://localhost:1337'+post.images[0].formats.small.url} width="100%" height="100%" />
+                    <img src={post.images[0].formats.small.url} width="100%" height="100%" />
                   </div>
                   </Card>
-                </a>
+                </Link>
               ))
               /* categoryPost && categoryPost.map(post => (
                 <a key={post.id} className="card-link" onClick={e => handleClick(e, post.id)} href="">

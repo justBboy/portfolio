@@ -45,22 +45,22 @@ function App() {
         <BGParticles />
         <Nav currentPage={currentPage} open={open} setOpen={setOpen} />
         <Switch>
-          <Route exact path="/demos">
-            <Redirect to="/demos/categories/all" />
+          <Route exact path="/portfolio/demos">
+            <Redirect to="/portfolio/demos/categories/all" />
           </Route>
           
           <Route
-            path="/demos/categories/:slug"
+            path="/portfolio/demos/categories/:slug"
             component={() => (
               <DemoContent setCurrentPage={setCurrentPage} posts={posts} />
             )}
           />
           <Route
-            path="/demos/:id"
+            path="/portfolio/demos/:id"
             component={() => <SingleDemo posts={posts} />}
           />
           <Route
-            path="/"
+            path="/portfolio"
             exact={true}
             component={() => <HomeContent open={open} setOpen={setOpen} setCurrentPage={setCurrentPage} />}
           />
